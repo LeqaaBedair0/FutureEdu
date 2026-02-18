@@ -1,0 +1,15 @@
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\repository\UserRepository.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\BackendApplication.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\model\Student.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\model\User.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\controller\CameraController.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\service\AuthService.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\repository\StudentRepository.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\service\CustomUserDetailsService.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\config\SecurityConfig.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\service\WebcamService.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\config\AppConfig.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\controller\AuthController.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\controller\StudentController.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\security\JwtAuthenticationFilter.java
+C:\Users\HP\Desktop\atendance\src\main\java\com\example\backend\security\JwtUtil.java
