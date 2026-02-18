@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #4f46e5;
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* DASHBOARD GRID LAYOUT */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px; /* Aligns with your Student Card */
+  margin: 0 auto;
+}
+
+/* --- COMMON CARD STYLES --- */
+.dashboard-card {
+  background: white;
+  border-radius: 28px; /* Matches Student Card */
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 800;
+}
+
+.view-all {
+  font-size: 0.85rem;
+  color: #2563eb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- 1. RECENT EXAMS STYLING --- */
+.exam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exam-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: #f8fafc;
+  border-radius: 15px;
+  transition: background 0.2s;
+}
+
+.exam-item:hover {
+  background: #f1f5f9;
+}
+
+.exam-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.exam-info span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.exam-grade {
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+/* Pass/Fail Colors */
+.exam-grade.pass {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.exam-grade.fail {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* --- 2. TEACHER NOTES STYLING --- */
+.note-card-wrapper {
+  background: linear-gradient(135deg, #ffffff, #fffbeb); /* Subtle yellow tint for notes */
+  border: 1px solid #fef3c7;
+}
+
+.note-content {
+  background: #fff7ed; /* Sticky note color */
+  padding: 20px;
+  border-radius: 18px;
+  border-left: 5px solid #f59e0b; /* Orange accent line */
+  position: relative;
+}
+
+.note-content p {
+  font-style: italic;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.note-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.note-author img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.note-author span {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+
+.chart-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%); /* Adjust vertically to center perfectly */
+  text-align: center;
+  pointer-events: none; /* Let clicks pass through to the chart */
+}
+
+.chart-center-text span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.chart-center-text small {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.student-page {
+  background: linear-gradient(135deg, #020617, #1e40af);
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-layout-wrapper {
+  width: 100%;
+  max-width: 1200px; 
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
+}
+
+.section-divider {
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  border-left: 3px solid #f59e0b;
+  padding-left: 10px;
+}
+
+/* --- 1. Student Profile Card --- */
+.student-card {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.student-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e0e7ff;
+}
+
+.student-info h2 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: #111827;
+}
+
+.student-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.detail-item {
+  background: #f9fafb;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+.detail-item strong { display: block; color: var(--text-muted); font-size: 0.8rem; }
+
+/* Print Button Styling */
+.btn-print {
+    margin-top: 15px;
+    background: #e0e7ff;
+    color: var(--primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-print:hover { background: #c7d2fe; }
+
+
+.dashboard-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Card Specifics */
+.card-attendance { grid-column: span 1; }
+.card-trend { grid-column: span 2; }
+.card-grades { grid-column: span 2; }
+.side-column { 
+  grid-column: span 1; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px; 
+}
+
+/* Attendance Chart Overlay */
+.chart-wrapper { position: relative; display: flex; justify-content: center; }
+.chart-center-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.chart-center-text h3 { margin: 0; font-size: 1.5rem; color: #111827; }
+.chart-center-text span { font-size: 0.8rem; color: var(--text-muted); }
+
+.stat-row { display: flex; justify-content: space-around; margin-top: 15px; font-size: 0.9rem; font-weight: 600; }
+
+/* Grades Progress Bars */
+.grade-item { margin-bottom: 15px; }
+.grade-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.95rem; font-weight: 500; }
+.progress-bg { width: 100%; height: 10px; background: #f3f4f6; border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 10px; transition: width 1s ease-in-out; }
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid { grid-template-columns: 1fr 1fr; }
+  .card-trend { grid-column: span 2; }
+  .card-grades { grid-column: span 2; }
+  .side-column { grid-column: span 2; flex-direction: row; }
+  .side-column > div { flex: 1; }
+}
+
+@media (max-width: 768px) {
+  .student-card { flex-direction: column; text-align: center; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .card-attendance, .card-trend, .card-grades, .side-column { grid-column: span 1; }
+  .side-column { flex-direction: column; }
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.float-btn {
+  width: 50px; height: 50px;
+  border-radius: 25px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.float-btn:hover { transform: translateY(-3px); }
+.float-btn.logout { background: #ef4444; }
+
+/* Financial Card Styling */
+.finance-summary {
+  display: flex;
+  justify-content: space-between;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.money-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.money-stat .label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.money-stat .value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.money-stat.paid .value { color: #10b981; }    /* Green */
+.money-stat.pending .value { color: #ef4444; } /* Red */
+
+.card-finance {
+  grid-column: span 1; 
+}
+
+/* --- UNIVERSAL PRINT FIX --- */
+@media print {
+  /* 1. RESET THE PAGE SIZE */
+  @page {
+    size: auto;
+    margin: 10mm;
+  }
+
+  /* 2. CRITICAL: Allow the page to grow beyond the screen */
+  html, body, #root {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  /* 3. HIDE SIDEBARS, BUTTONS, & POPUPS */
+  .floating-buttons, 
+  .no-print, 
+  .btn-print, 
+  .btn-search,
+  .mode-toggle,
+  .action-buttons-container,
+  .footer-buttons,
+  .btn-back,
+  .navbar, /* If you have one */
+  .sidebar { /* If you have one */
+    display: none !important; 
+  }
+
+  /* 4. FORCE CONTENT TO SHOW */
+  .student-page, 
+  .content-container {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  /* 5. STOP CARDS FROM BREAKING IN HALF */
+  .student-card, 
+  .dashboard-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ddd; /* Add border to see the card edge */
+    margin-bottom: 20px;
+    display: block !important; /* Fix flexbox issues */
+  }
+
+  /* 6. EXPAND THE GRID */
+  .dashboard-grid {
+    display: block !important; /* Stack charts vertically */
+  }
+
+  /* 7. ENSURE TEXT IS VISIBLE */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

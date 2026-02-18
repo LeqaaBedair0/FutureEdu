@@ -1,0 +1,47 @@
+# =====================
+# Node / React
+# =====================
+/node_modules
+/.pnp
+.pnp.js
+/coverage
+/build
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json
+
+# =====================
+# Java / Spring Boot
+# =====================
+/atendance/target/
+*.class
+*.jar
+*.war
+
+# Sensitive config
+atendance/src/main/resources/application.properties
+
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.log
+
+# =====================
+# Uploads / media / temp
+# =====================
+atendance/uploads/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico

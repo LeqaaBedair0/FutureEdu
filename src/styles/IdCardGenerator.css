@@ -1,0 +1,184 @@
+/* Screen Layout */
+.generator-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+/* Left Panel */
+.controls-panel {
+  width: 350px;
+  background: white;
+  padding: 30px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.controls-panel h2 { color: #1f2937; margin-top: 10px; }
+.controls-panel p { color: #6b7280; margin-bottom: 20px; font-size: 0.9rem; }
+
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; }
+.input-group input { 
+  width: 100%; padding: 10px; 
+  border: 1px solid #d1d5db; border-radius: 6px; 
+}
+
+.btn-print-large {
+  width: 100%;
+  padding: 15px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.btn-print-large:hover { background: #1d4ed8; }
+
+.btn-back {
+  background: none; border: none; color: #6b7280; cursor: pointer; font-weight: 600;
+}
+
+/* Right Panel (Preview) */
+.preview-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* --- THE ID CARD DESIGN --- */
+.id-card {
+  width: 350px;
+  height: 520px; /* Standard vertical ID ratio */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+}
+
+/* Header */
+.card-header-bg {
+  height: 100px;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.card-header-bg h3 { margin: 0; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Body */
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.photo-section img {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  margin-top: -75px; /* Pulls photo up into header */
+  background: white;
+}
+
+.details-section { text-align: center; margin-top: 15px; width: 100%; }
+.st-name { font-size: 1.8rem; color: #111827; margin: 10px 0 5px 0; }
+.st-role { color: #6b7280; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; }
+
+.st-meta {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Barcode */
+.barcode-section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+}
+
+/* Footer Stripe */
+.card-footer-stripe {
+  height: 15px;
+  background: #f59e0b; /* Accent color */
+}
+
+/* --- PRINT MEDIA QUERY (THE MAGIC) --- */
+/* --- FIXED ID CARD PRINT CSS --- */
+@media print {
+  /* 1. Clear the page settings */
+  @page { margin: 0; size: auto; }
+
+  /* 2. Hide EVERYTHING on the page first */
+  body * {
+    visibility: hidden;
+  }
+
+  /* 3. Make the background white */
+  body, html {
+    background: white;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* 4. Show ONLY the Print Area */
+  .preview-panel, 
+  .preview-panel * {
+    visibility: visible;
+  }
+
+  /* 5. Position the container to fill the page */
+  .preview-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* 6. Style the Card specifically for print */
+  .id-card {
+    visibility: visible;
+    border: 1px solid #000; /* Crisp border */
+    box-shadow: none;
+    /* Ensure it doesn't get cut off - no margins here */
+    margin: 0; 
+    transform: scale(1); /* Reset scale */
+    
+    /* Force colors to print (Chrome/Safari) */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Hide the "This is how it looks" text */
+  .preview-note, .no-print { display: none !important; }
+}

@@ -1,0 +1,106 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+}
+
+.login-card {
+  background: white;
+  padding: 45px 35px;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.login-card h1 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+.login-card p {
+  margin-bottom: 30px;
+  color: #475569;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 15px;
+  background: #2563eb;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-card button:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.login-card button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-card .error-message {
+  color: #dc2626;  /* red color */
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+
+.remember-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.remember-container input[type="checkbox"] {
+  display: none;
+}
+
+
+.remember-container label {
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+  background: #2563eb;
+  color: white;
+  border-radius: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  user-select: none;
+}
+
+
+.remember-container label:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+
+.remember-container label.checked {
+  background: #16a34a; 
+  color: white;
+}
