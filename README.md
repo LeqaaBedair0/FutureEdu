@@ -1,5 +1,9 @@
 # 🎓 FutureEdu - Smart School Management Platform
 
+## 👨‍💻 Developed By
+Leqaa Bedair GitHub: @LeqaaBedair0
+Kareem Mohamed GitHub: @Kareemmohamed433
+
 ![FutureEdu Banner](https://via.placeholder.com/1000x400?text=FutureEdu+Smart+Platform)
 
 FutureEdu is a comprehensive, microservices-based school management platform designed to automate administrative workflows. It features an AI-powered facial recognition system for seamless attendance tracking, dynamic ID card generation, and real-time financial analytics.
@@ -77,9 +81,7 @@ cd frontend
 npm install
 npm start
 
-## 👨‍💻 Developed By
-Leqaa Bedair GitHub: @LeqaaBedair0
-Kareem Mohamed GitHub: @Kareemmohamed433
+
 
 
 
