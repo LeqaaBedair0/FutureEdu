@@ -77,7 +77,7 @@ cd frontend
 npm install
 npm start
 
-# 👨‍💻 Developed By
+## 👨‍💻 Developed By
 Leqaa Bedair GitHub: @LeqaaBedair0
 Kareem Mohamed GitHub: @Kareemmohamed433
 
